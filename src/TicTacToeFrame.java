@@ -104,7 +104,7 @@ public class TicTacToeFrame extends JFrame
                         {
                             checkWin();
                         }
-                        if (numMove >= 9)
+                        if (numMove >= 7)
                         {
                            checkTie();
                         }
