@@ -104,7 +104,7 @@ public class TicTacToeFrame extends JFrame
                         {
                             checkWin();
                         }
-                        if (numMove >= 7)
+                        if (numMove >= 9)
                         {
                            checkTie();
                         }
@@ -303,6 +303,7 @@ public class TicTacToeFrame extends JFrame
     private void createBottomPnl()
     {
         quitBtn = new JButton("Quit");
+        quitBtn.setFont(new Font(Font.SERIF, Font.PLAIN, 20));
         quitBtn.addActionListener((ActionEvent ae) -> System.exit(0));
 
         bottomPnl.add(quitBtn);
