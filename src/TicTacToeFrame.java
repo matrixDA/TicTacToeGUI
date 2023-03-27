@@ -27,7 +27,7 @@ public class TicTacToeFrame extends JFrame
        int screenWidth = screenSize.width;
 
        setSize(screenWidth * 3/4,600);
-       setLocation(screenWidth / 8, (screenHeigh - 600) / 2 );
+       setLocation(screenWidth / 8, (screenHeigh - 600) / 2);
 
        setTitle("Tic Tac Toe Game");
        setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -61,6 +61,7 @@ public class TicTacToeFrame extends JFrame
     private void createTopPnl()
     {
        turn = new JLabel("X turn");
+       turn.setFont(new Font(Font.SERIF, Font.PLAIN, 35));
 
        topPnl.add(turn);
 
@@ -87,11 +88,13 @@ public class TicTacToeFrame extends JFrame
                         if (playerMove)
                         {
                             player.setText("X");
+                            player.setFont(new Font(Font.SERIF, Font.PLAIN, 30));
                             turn.setText("O turn");
                         }
                         else
                         {
                             player.setText("O");
+                            player.setFont(new Font(Font.SERIF, Font.PLAIN, 30));
                             turn.setText("X turn");
                         }
                         playerMove = !playerMove;
@@ -103,8 +106,9 @@ public class TicTacToeFrame extends JFrame
                         }
                         if (numMove >= 7)
                         {
-                            checkTie();
+                           checkTie();
                         }
+
                 });
                 centerPnl.add(board[row][col]);
 
@@ -119,7 +123,7 @@ public class TicTacToeFrame extends JFrame
         // Check all 8 win vectors for an X and O so
         // no win is possible
         // Check for row ties
-        for(int row=0; row < 3; row++)
+        for(int row=0; row < ROW; row++)
         {
             if(board[row][0].getText().equals("X") ||
                     board[row][1].getText().equals("X") ||
@@ -149,7 +153,7 @@ public class TicTacToeFrame extends JFrame
 
         }
         // Now scan the columns
-        for(int col=0; col < 3; col++)
+        for(int col=0; col < COL; col++)
         {
             if(board[0][col].getText().equals("X") ||
                     board[1][col].getText().equals("X") ||
@@ -160,9 +164,7 @@ public class TicTacToeFrame extends JFrame
                 restartGame();
                 return;
             }
-            if(board[0][col].getText().equals("O") ||
-                    board[1][col].getText().equals("O") ||
-                    board[2][col].getText().equals("O"))
+            if(board[0][col].getText().equals("O"))
             {
               //  oFlag = true; // there is an O in this col
                 JOptionPane.showMessageDialog(null, "Tie Game");
@@ -180,7 +182,7 @@ public class TicTacToeFrame extends JFrame
 
         if(board[0][0].getText().equals("X") ||
                 board[1][1].getText().equals("X") ||
-                board[2][2].getText().equals("X") )
+                board[2][2].getText().equals("X"))
         {
            // xFlag = true;
             JOptionPane.showMessageDialog(null, "Tie Game");
@@ -189,7 +191,7 @@ public class TicTacToeFrame extends JFrame
         }
         if(board[0][0].getText().equals("O") ||
                 board[1][1].getText().equals("O") ||
-                board[2][2].getText().equals("O") )
+                board[2][2].getText().equals("O"))
         {
            // oFlag = true;
             JOptionPane.showMessageDialog(null, "Tie Game");
@@ -204,7 +206,7 @@ public class TicTacToeFrame extends JFrame
 
         if(board[0][2].getText().equals("X") ||
                 board[1][1].getText().equals("X") ||
-                board[2][0].getText().equals("X") )
+                board[2][0].getText().equals("X"))
         {
            // xFlag =  true;
             JOptionPane.showMessageDialog(null, "Tie Game");
@@ -213,7 +215,7 @@ public class TicTacToeFrame extends JFrame
         }
         if(board[0][2].getText().equals("O") ||
                 board[1][1].getText().equals("O") ||
-                board[2][0].getText().equals("O") )
+                board[2][0].getText().equals("O"))
         {
            // oFlag =  true;
             JOptionPane.showMessageDialog(null, "Tie Game");
